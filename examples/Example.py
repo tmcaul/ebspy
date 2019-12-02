@@ -17,8 +17,8 @@ ebspfilepath=patpath/patfile
 
 #%% Import data from h5
 #region=[0,60,0,60]
-region=[]
-Metadata, Data, visual, region = eb.bImportEBSPs(ebspfilepath, True, region)
+region=[0,40,0,40]
+Metadata, Data, visual, region = eb.bImportEBSPs(ebspfilepath, True, region,importEDS=False)
 plt.imshow(visual)
 plt.show()
 
