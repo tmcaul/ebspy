@@ -158,13 +158,13 @@ class EBSP: #feed it n x patheight x patwidth OR n x (patheight*patwidth)
 
 #%%    
     # a method to quickly print the EBSP
-    def disp(self,n):
+    def disp(self,n,colourmap='gray'):
         if n==None:
             n=self.number
             
         import matplotlib.pyplot as plt
         fig,ax=plt.subplots()
-        plt.imshow(self.array[n,:,:],cmap='gray')
+        plt.imshow(self.array[n,:,:],cmap=colourmap)
         ax.set_aspect(1.0)
 
 #%%    
