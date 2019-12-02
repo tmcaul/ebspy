@@ -3,7 +3,7 @@
 This is a simple package for handling EBSPs in python. 
 
 Currently contains:
-- bImportEBSPs, load an EBSD dataset from a Bruker Esprit exported HDF5 file.
+- bImportEBSPs, load an EBSD dataset from a Bruker Esprit exported HDF5 file. Reconstructs data from beam scan positions so annoying Esprit non-serial saving fixed.
 - EBSP class, a stack of EBSD data with a few useful methods. Can feed a column vector with metadata or a rectangular array to construct dataset. Add-able, edit-able, set-able using magic methods.
 - EBSP.bgcorr() class method, adapted from AstroEBSD https://github.com/benjaminbritton/AstroEBSD MATLAB BGCor function.
 - Varimax and generalised orthogonal rotation implementations
