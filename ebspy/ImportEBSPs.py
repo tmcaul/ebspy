@@ -33,18 +33,20 @@ def bImportEBSPs (ebspfilepath,importdata,region=[],importEBSD=True,importEDS=Tr
             name2=name[name.rfind('/')+1:]
             val=dataset[()]
 
-        if (name2 != r'Counts Corrected') and (name2 != r'Counts Raw') and (name2 != r'Raw Patterns'):
-                Metadata[name2]=val            
+            if (name2 != r'Counts Corrected') and (name2 != r'Counts Raw') and (name2 != r'Raw Patterns'):
+                    Metadata[name2]=val            
             
 
     #%% Sort out ordering of metadata
 
-    x=Metadata['X BEAM']
-    y=Metadata['Y BEAM']
+    x=np.array(Metadata['X BEAM'])
+    y=np.array(Metadata['Y BEAM'])
     cols=max(x)-min(x)+1
     rows=max(y)-min(y)+1
-    arr=np.array([y,x])
-    patno=np.ravel_multi_index(arr,[rows,cols],order='C')
+    arr=np.array([x,y])
+
+    patno1=np.ravel_multi_index(arr,[cols,rows],order='F')
+    patno=np.argsort(patno1)
 
     for n,key in enumerate(Metadata):
         if np.shape(Metadata[key])==(rows*cols,):
