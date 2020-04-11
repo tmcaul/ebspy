@@ -1,7 +1,7 @@
 #Create spatially weihgted testArray after Guo et al 
 #TPM 14/10/19
 
-def spatial_tA(testArray,region,r=2):
+def spatial_tA(testArray,region,r=2,normalise=True,normalise_NMF=False):
     
     import numpy as np
     
@@ -33,6 +33,14 @@ def spatial_tA(testArray,region,r=2):
             for l in range(0,len(kernel_i)):
                 sumpat=sumpat+w[l]*tA_h_original[:,kernel_i[l],kernel_j[l]]
             tA_h[:,i,j]=sumpat #insert sum pattern
+
+            if normalise==True:
+                if normalise_NMF==False:
+                    #renormalise pattern
+                    tA_h[:,i,j]=(tA_h[:,i,j]-np.mean(tA_h[:,i,j]))/np.std(tA_h[:,i,j])
+            
+            if normalise_NMF==True:
+                tA_h[:,i,j]=(tA_h[:,i,j]-np.amin(tA_h[:,i,j]))/np.std(tA_h[:,i,j])
             
     tA_h=tA_h.reshape(testArray.shape[0],testArray.shape[1])
             

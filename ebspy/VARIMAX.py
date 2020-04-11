@@ -39,7 +39,7 @@ def varimax(Phi, gamma = 1, q = 20, tol = 1e-6):
     p,k = Phi.shape
     R = eye(k)
     d=0
-    for i in xrange(q):
+    for i in range(q):
         d_old = d
         Lambda = dot(Phi, R)
         u,s,vh = svd(dot(Phi.T,asarray(Lambda)**3 - (gamma/p) * dot(Lambda, diag(diag(dot(Lambda.T,Lambda))))))
