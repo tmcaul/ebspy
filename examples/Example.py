@@ -55,3 +55,13 @@ EBSPs4=EBSPs3[0:2]
 #can replace by index
 EBSPs3[1:3]=EBSPs2[0:2]
 EBSPs3[0,1]=EBSPs2[0,1]
+
+#%%
+import ebspy as eb
+c=EBSPsCor[0:5].vector
+r=eb.ortho_rotation(c)
+cv=c@r
+cv=cv.reshape(300,300,5)
+plt.imshow(cv[:,:,3])
+
+# %%

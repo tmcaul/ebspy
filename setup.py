@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='ebspy',
-    version="1.0.0",
+    version="1.1.0",
     author="Tom McAuliffe",
     author_email="tmcauliffe@icloud.com",
     description="A package for handling electronbackscatter diffraction data",
